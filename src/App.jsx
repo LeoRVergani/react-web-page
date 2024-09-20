@@ -23,6 +23,22 @@ function App() {
     isCompleted: false
   },
 ])
+
+function onTaskClick() {
+  const newTasks = taks.map((task) => {
+    // Atualizar tarefa
+    if (task.id == taskId) {
+      return { ...task, isCompleted: !task.isCompleted };
+    }
+
+    // Não atualizar tarefa
+    return task;
+  });
+  setTasks(newTasks);
+}
+
+
+
   return (
     <div className="w-screen h-screen bg-slate-500 flex justify-center p-6">
       <div className="w-[500px]">
